@@ -12,13 +12,13 @@
 
     <div class="container" id="app">
       <header id="header">
-        <h1>{{ getname().toUpperCase() }}</h1>
+        <h1 v-html="namaStore"></h1>
       </header>
 
       <div class="container" id="content">
         <div class="row">
           <div class="col-6 col-lg-3">
-            <img src="assets/img/earphone.jfif" alt="..." style="width: 70%">
+            <img :src="imgProduk" alt="..." width="200">
           </div>
           <div class="col-6 col-lg-3">
             <h4>Detail:</h4>
@@ -35,15 +35,23 @@
 
               <div class="w-100"></div>
 
-              <div class="col-6 col-sm-3">Kondisi</div>
+              <div class="col-6 col-sm-3">Stok</div>
               <div class="col-1">:</div>
-              <div class="col-6 col-sm-3">Baru</div>
+              <div class="col-6 col-sm-3">{{ qty }}</div>
+
+              <hr class="my-3">
+
+              <div class="row col">
+                <div class="col-6 col-sm-3">Total</div>
+                <div class="col-1">:</div>
+                <div class="col-6 col-sm-3">{{ totalBayar }}</div>
+              </div>
             </div>
           </div>
-          <div class="detail">
-            <span class="badge bg-primary">{{ active ? 'Aktif' : 'Tidak aktif' }}</span><h4>{{ namaProduk }}</h4>
-            <p>{{ adalagi }}</p>
-          </div>
+        </div>
+        <div class="col-6">
+          <span class="badge bg-success">{{ active }}</span><h4>{{ namaProduk }}</h4>
+          <p>{{ deskProduk }}</p>
         </div>
       </div>
 
