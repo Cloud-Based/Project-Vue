@@ -3,14 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Coba Vue.js</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
+    <link rel="stylesheet" href="assets/style.css">
   </head>
   <body>
-    Nyoba dulu ae!
+
     <div id="app">
-      <h1>{{ isi }}</h1>
-      {{ adalagi }}
+      <header id="header">
+        <h1>{{ getname().toUpperCase() }}</h1>
+          <h3 v-once>{{ isi }} "{{ active ? 'Success' : 'Danger' }}"</h3>
+          <p>{{ adalagi }}</p>
+      </header>
+
+      <footer id="footer">
+        <p>@copyright 2022</p>
+      </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+    <script src="assets/main.js"></script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
-  <script src="assets/main.js"></script>
 </html>
