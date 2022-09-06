@@ -1,6 +1,6 @@
 const content = {
-  judul: 'Nyoba dulu ae!',
-  isi: 'Coba dulu ae!',
+  toko: 'Nyoba dulu ae!',
+  namaProduk: 'Earphone Xiaomi Terbaru',
   adalagi: 'Ini juga coba!',
   active: true
 }
@@ -10,10 +10,10 @@ const app = new Vue({
   data: content,
   methods: {
     getname: function() {
-      return 'Wel-come ' + this.judul
+      return this.toko + ' store'
     },
-    judulUbah: function(judulBaru) {
-      this.judul = judulBaru
+    tokoUbah: function(tokoBaru) {
+      this.toko = judulBaru
     }
   }
 })
