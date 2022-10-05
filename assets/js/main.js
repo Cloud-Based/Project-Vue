@@ -4,7 +4,8 @@ const content = {
   imgProduk: 'assets/img/earphone.jfif',
   namaProduk: 'Earphone Xiaomi Terbaru',
   deskProduk: 'All in Eartip Earphone. Kabel lebih panjang untuk kemudahan dan kenyamanan  menelpon dan mendengarkan lagu favorit kamu.',
-  qty: 8,
+  qty: 3,
+  cart: 0,
   ready: true
 }
 
@@ -21,7 +22,7 @@ const app = new Vue({
   },
   computed: {
     totalBayar: function() {
-      return 'Rp' + this.qty * 450000
+      return 'Rp' + this.cart * 450000
     },
     active: function() {
       return this.ready ? 'Ready' : 'Sold Out'
