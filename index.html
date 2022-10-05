@@ -41,7 +41,7 @@
 
               <div class="col-6 col-sm-3">Stock</div>
               <div class="col-1">:</div>
-              <div class="col-6 col-sm-3" v-text="qty"></div>
+              <div class="col-6 col-sm-3" v-text="stock"></div>
 
               <div class="w-100"></div>
 
@@ -59,10 +59,10 @@
             </div>
             <div class="row mt-4">
               <div class="col">
-                <button v-on:click="cart++, qty--" type="button" name="button" class="btn btn-primary">Tambah</button>
+                <button @click="cart++, stock--" type="button" name="button" class="btn btn-primary" :disabled="isDisabledAdd">Tambah</button>
               </div>
               <div class="col">
-                <button v-on:click="cart--, qty++" type="button" name="button" class="btn btn-danger">Hapus</button>
+                <button @click="cart--, stock++" type="button" name="button" class="btn btn-danger" :disabled="isDisabledRemove">Hapus</button>
               </div>
             </div>
           </div>
