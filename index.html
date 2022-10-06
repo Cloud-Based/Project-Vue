@@ -23,10 +23,19 @@
           <div class="d-flex">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Beranda</a>
+                <a class="nav-link" href="#">
+                  <span v-bind:class="{active: nav === 'beranda'}">Beranda</span>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Footer</a>
+                <a class="nav-link" href="#">
+                  <span v-bind:class="{active: nav === 'product'}">Product</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span v-bind:class="{active: nav === 'footer'}">Footer</span>
+                </a>
               </li>
             </ul>
           </div>

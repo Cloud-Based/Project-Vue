@@ -6,6 +6,7 @@ const content = {
   deskProduk: 'All in Eartip Earphone. Kabel lebih panjang untuk kemudahan dan kenyamanan menelpon dan mendengarkan lagu favorit kamu.',
   stock: 3,
   cart: 0,
+  nav: 'product',
   ready: true
 }
 

@@ -7,7 +7,7 @@ h4 {
   color: white;
 }
 
-ul.navbar-nav li a.active {
+ul.navbar-nav li a span.active {
   font-weight: bold;
   color: #f0f8ff;
 }
