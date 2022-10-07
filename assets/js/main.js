@@ -1,5 +1,5 @@
 const content = {
-  toko: '<strong>nyoba dulu ae!</strong>',
+  toko: 'nyoba dulu ae!',
   store: ' store',
   imgProduk: 'assets/img/earphone.jfif',
   namaProduk: 'Earphone Xiaomi Terbaru',
@@ -7,6 +7,7 @@ const content = {
   stock: 3,
   cart: 0,
   nav: 'product',
+  type: [],
   ready: true
 }
 
