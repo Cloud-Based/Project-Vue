@@ -1,3 +1,17 @@
+Vue.component('footer-component', {
+  template: `
+    <footer id="footer" class="mt-4">
+      <p>{{ cr }}</p>
+    </footer>
+  `,
+  data: function() {
+    return {
+      cr: '@copyright 2022 - Vue.js'
+    }
+  }
+
+})
+
 const content = {
   toko: 'nyoba dulu ae!',
   store: ' store',
@@ -8,6 +22,7 @@ const content = {
   cart: 0,
   nav: 'beranda',
   type: ['Wireless', 'Wired'],
+  typeBaru: "",
   bilangan: [1, 2, 3, 4, 5, 6],
   ready: true
 }
@@ -26,6 +41,13 @@ const app = new Vue({
       return data.filter(angka => {
         return angka % 2 == 0
       })
+    },
+    menuNavigasi: function(data) {
+      this.nav = data
+    },
+    sumbit: function() {
+      this.type.push(this.typeBaru)
+      this.typeBaru = ""
     }
   },
   computed: {

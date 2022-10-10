@@ -29,97 +29,109 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <span v-bind:class="{active: nav === 'beranda'}">Beranda</span>
+                  <span v-bind:class="{active: nav === 'beranda'}" @click.prevent="menuNavigasi('beranda')">Beranda</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <span v-bind:class="{active: nav === 'product'}">Product</span>
+                  <span v-bind:class="{active: nav === 'product'}" @click.prevent="menuNavigasi('product')">Product</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <span v-bind:class="{active: nav === 'footer'}">Footer</span>
+                  <span v-bind:class="{active: nav === 'footer'}" @click.prevent="menuNavigasi('footer')">Footer</span>
                 </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div class="container mt-4" id="content">
-        <div class="row">
-          <div class="type col-6 col-lg-3">
-            <img :src="imgProduk" alt="..." width="200">
-            <p class="mt-2">
-              <label><input type="checkbox" value="Hitam" v-model="type">Hitam</label>
-              <label><input type="checkbox" value="Putih" v-model="type">Putih</label>
-            </p>
-            <ul class="list-type" v-if="type.length > 0">
-              <li v-for="(item, index) of type">{{ index+1 }} - {{ item }}</li>
-            </ul>
-            <li v-else>Type belum tersedia</li>
-            <ul class="list-type">
-              <li v-for="val in bilangangenap(bilangan)">{{ val }}</li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h4>Detail:</h4>
-            <div class="row">
-              <div class="col-6 col-sm-3">Kondisi</div>
-              <div class="col-1">:</div>
-              <div class="col-6 col-sm-3">Baru</div>
 
-              <div class="w-100"></div>
+      <main>
+        <div class="container mt-4" id="content">
+          <div class="row">
+            <div class="type col-6 col-lg-3">
+              <img :src="imgProduk" alt="..." width="200">
+              <p class="mt-2">
+                <label><input type="checkbox" value="Hitam" v-model="type">Hitam</label>
+                <label><input type="checkbox" value="Putih" v-model="type">Putih</label>
+              </p>
 
-              <div class="col-6 col-sm-3">Harga</div>
-              <div class="col-1">:</div>
-              <div class="col-6 col-sm-3">Rp450.000</div>
+              <input type="text" placeholder="Add type" @keyup.enter="sumbit" v-model="typeBaru">
 
-              <div class="w-100"></div>
+              <template  v-if="type.length > 0">
+                <ul class="list-type">
+                  <li v-for="(item, index) of type">{{ index+1 }} - {{ item }}</li>
+                </ul>
+              </template>
 
-              <div class="col-6 col-sm-3">Stock</div>
-              <div class="col-1">:</div>
-              <div class="col-6 col-sm-3" v-text="stock"></div>
-
-              <div class="w-100"></div>
-
-              <div class="col-6 col-sm-3">Type</div>
-              <div class="col-1">:</div>
-              <div class="col-6">{{ type }}</div>
-
-              <div class="w-100"></div>
-
-              <div class="col-6 col-sm-3">Qty</div>
-              <div class="col-1">:</div>
-              <div class="col-6 col-sm-3" v-text="cart"></div>
-
-              <hr class="my-3">
-
-              <div class="row col">
-                <div class="col-6 col-sm-3">Total</div>
+              <li v-else>Type belum tersedia</li>
+              <br>
+              <ul class="list-type" v-show="type.length > 0">
+                <li v-for="(item, index) of type">{{ index+1 }} - {{ item }}</li>
+              </ul>
+              <br>
+              <ul class="list-type">
+                <li v-for="val in bilangangenap(bilangan)">{{ val }}</li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-3">
+              <h4>Detail:</h4>
+              <div class="row">
+                <div class="col-6 col-sm-3">Kondisi</div>
                 <div class="col-1">:</div>
-                <div class="col-6 col-sm-3">{{ totalBayar }}</div>
+                <div class="col-6 col-sm-3">Baru</div>
+
+                <div class="w-100"></div>
+
+                <div class="col-6 col-sm-3">Harga</div>
+                <div class="col-1">:</div>
+                <div class="col-6 col-sm-3">Rp450.000</div>
+
+                <div class="w-100"></div>
+
+                <div class="col-6 col-sm-3">Stock</div>
+                <div class="col-1">:</div>
+                <div class="col-6 col-sm-3" v-text="stock"></div>
+
+                <div class="w-100"></div>
+
+                <div class="col-6 col-sm-3">Type</div>
+                <div class="col-1">:</div>
+                <div class="col-6">{{ type }}</div>
+
+                <div class="w-100"></div>
+
+                <div class="col-6 col-sm-3">Qty</div>
+                <div class="col-1">:</div>
+                <div class="col-6 col-sm-3" v-text="cart"></div>
+
+                <hr class="my-3">
+
+                <div class="row col">
+                  <div class="col-6 col-sm-3">Total</div>
+                  <div class="col-1">:</div>
+                  <div class="col-6 col-sm-3">{{ totalBayar }}</div>
+                </div>
               </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col">
-                <button @click="cart++, stock--" type="button" name="button" class="btn btn-primary" :disabled="isDisabledAdd">Tambah</button>
-              </div>
-              <div class="col">
-                <button @click="cart--, stock++" type="button" name="button" class="btn btn-danger" :disabled="isDisabledRemove">Hapus</button>
+              <div class="row mt-4">
+                <div class="col">
+                  <button @click="cart++, stock--" type="button" name="button" class="btn btn-primary" :disabled="isDisabledAdd">Tambah</button>
+                </div>
+                <div class="col">
+                  <button @click="cart--, stock++" type="button" name="button" class="btn btn-danger" :disabled="isDisabledRemove">Hapus</button>
+                </div>
               </div>
             </div>
           </div>
+          <div class="col-6 mt-4">
+            <span class="badge bg-success">{{ active }}</span><h4>{{ namaProduk }}</h4>
+            <p>{{ deskProduk }}</p>
+          </div>
         </div>
-        <div class="col-6 mt-4">
-          <span class="badge bg-success">{{ active }}</span><h4>{{ namaProduk }}</h4>
-          <p>{{ deskProduk }}</p>
-        </div>
-      </div>
+      </main>
 
-      <footer id="footer" class="mt-4">
-        <p>@copyright 2022</p>
-      </footer>
+      <footer-component></footer-component>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
