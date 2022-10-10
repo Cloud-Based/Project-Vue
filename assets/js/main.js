@@ -6,8 +6,9 @@ const content = {
   deskProduk: 'All in Eartip Earphone. Kabel lebih panjang untuk kemudahan dan kenyamanan menelpon dan mendengarkan lagu favorit kamu.',
   stock: 3,
   cart: 0,
-  nav: 'product',
-  type: [],
+  nav: 'beranda',
+  type: ['Wireless', 'Wired'],
+  bilangan: [1, 2, 3, 4, 5, 6],
   ready: true
 }
 
@@ -20,6 +21,11 @@ const app = new Vue({
     },
     tokoUbah: function(tokoBaru) {
       this.toko = judulBaru
+    },
+    bilangangenap: function(data) {
+      return data.filter(angka => {
+        return angka % 2 == 0
+      })
     }
   },
   computed: {

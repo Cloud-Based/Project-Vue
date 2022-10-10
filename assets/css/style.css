@@ -19,3 +19,13 @@ ul.navbar-nav li a span.active {
 .nav-item .nav-link:hover {
   color: #f0f8ff;
 }
+
+ul.list-type {
+  margin-left: -30px;
+}
+
+.type ul li {
+  list-style: none;
+  float: left;
+  margin-right: 5%;
+}

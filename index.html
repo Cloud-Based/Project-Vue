@@ -48,12 +48,19 @@
       </nav>
       <div class="container mt-4" id="content">
         <div class="row">
-          <div class="col-6 col-lg-3">
+          <div class="type col-6 col-lg-3">
             <img :src="imgProduk" alt="..." width="200">
             <p class="mt-2">
               <label><input type="checkbox" value="Hitam" v-model="type">Hitam</label>
               <label><input type="checkbox" value="Putih" v-model="type">Putih</label>
             </p>
+            <ul class="list-type" v-if="type.length > 0">
+              <li v-for="(item, index) of type">{{ index+1 }} - {{ item }}</li>
+            </ul>
+            <li v-else>Type belum tersedia</li>
+            <ul class="list-type">
+              <li v-for="val in bilangangenap(bilangan)">{{ val }}</li>
+            </ul>
           </div>
           <div class="col-6 col-lg-3">
             <h4>Detail:</h4>
