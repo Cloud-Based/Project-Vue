@@ -125,13 +125,13 @@
             </div>
           </div>
           <div class="col-6 mt-4">
-            <span class="badge bg-success">{{ active }}</span><h4>{{ namaProduk }}</h4>
+            <span class="badge bg-success">{{ active }}</span><nama-produk></nama-produk>
             <p>{{ deskProduk }}</p>
           </div>
         </div>
       </main>
 
-      <footer-component></footer-component>
+      <footer-component nama="Vue.js" :cr="copy"></footer-component>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>

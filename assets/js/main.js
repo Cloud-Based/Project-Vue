@@ -1,22 +1,21 @@
+const produkName = {
+  template: '<h4>Earphone Xiaomi Terbaru</h4>'
+}
+
 Vue.component('footer-component', {
+  props: ['nama', 'cr'],
   template: `
     <footer id="footer" class="mt-4">
-      <p>{{ cr }}</p>
+      <p>{{ cr + nama }}</p>
     </footer>
-  `,
-  data: function() {
-    return {
-      cr: '@copyright 2022 - Vue.js'
-    }
-  }
-
+  `
 })
 
 const content = {
   toko: 'nyoba dulu ae!',
   store: ' store',
   imgProduk: 'assets/img/earphone.jfif',
-  namaProduk: 'Earphone Xiaomi Terbaru',
+  // namaProduk: 'Earphone Xiaomi Terbaru',
   deskProduk: 'All in Eartip Earphone. Kabel lebih panjang untuk kemudahan dan kenyamanan menelpon dan mendengarkan lagu favorit kamu.',
   stock: 3,
   cart: 0,
@@ -24,12 +23,16 @@ const content = {
   type: ['Wireless', 'Wired'],
   typeBaru: "",
   bilangan: [1, 2, 3, 4, 5, 6],
-  ready: true
+  ready: true,
+  copy: "@copyright 2022 - "
 }
 
 const app = new Vue({
   el: '#app',
   data: content,
+  components: {
+    'nama-produk': produkName
+  },
   methods: {
     getname: function() {
       return this.toko
