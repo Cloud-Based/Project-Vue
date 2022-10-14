@@ -15,7 +15,6 @@ const content = {
   toko: 'nyoba dulu ae!',
   store: ' store',
   imgProduk: 'assets/img/earphone.jfif',
-  // namaProduk: 'Earphone Xiaomi Terbaru',
   deskProduk: 'All in Eartip Earphone. Kabel lebih panjang untuk kemudahan dan kenyamanan menelpon dan mendengarkan lagu favorit kamu.',
   stock: 3,
   cart: 0,
